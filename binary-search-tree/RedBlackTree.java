@@ -142,42 +142,6 @@ public class RedBlackTree<Key extends Comparable<Key>, Item> {
         updatePath(v);
     }
 
-    public void delete(Key key) {
-        BSTreeNode v = searchNode(key);
-        BSTreeNode u = null;
-        // Case 1: v has at most one child
-        if (v.left == null || v.right == null) {
-            // Delete v
-            if (v.left != null) {
-                u = v.left;
-            } else {
-                u = v.right;
-            }
-            if (u != null) {
-                u.parent = v.parent;
-            }
-            if (v.parent == null) {
-                root = u;
-            } else {
-                if (v == v.parent.left) {
-                    v.parent.left = u;
-                } else {
-                    v.parent.right = u;
-                }
-            }
-            // Promote the child of v
-            if (u != null) {
-                v = u;
-            }
-
-        } else {
-            // Case 2: v has two children
-            u = successor(v);
-            v.key = u.key;
-            v.item = u.item;
-        }
-    }
-
     private BSTreeNode successor(BSTreeNode v) {
         if (v.right != null) {
             return minimum(v.right);
@@ -349,23 +313,6 @@ public class RedBlackTree<Key extends Comparable<Key>, Item> {
         System.out.println("Number of keys in [" + low + ", " + high + "] = " + count);
         long totalTime2 = endTime2 - startTime2;
         System.out.println("Key search time = " + totalTime2);
-
-        // Print only for small trees
-        if (n <= 16) {
-            T.print();
-        }
-
-        // Delete the keys ranging from n/2 to 3n/4
-        System.out.println("========================================");
-        System.out.println("Deleting keys from " + n/2 + " to " + 3*n/4);
-        long startTime3 = System.currentTimeMillis();
-        for (int i = n/2; i < 3*n/4; i++) {
-            T.delete(keys[i]);
-        }
-        long endTime3 = System.currentTimeMillis();
-        long totalTime3 = endTime3 - startTime3;
-        System.out.println("Deletion time = " + totalTime2);
-        System.out.println("New Tree height = " + T.getTreeHeight());
 
         // Print only for small trees
         if (n <= 16) {
