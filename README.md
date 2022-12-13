@@ -8,7 +8,7 @@
 - [Lab 3] (Linked Lists)
 - [Lab 4] (Binary Search Trees)
 - [Lab 5] (Graphs)
-- [Lab 6](Hash Tables)
+- [Lab 6] (Hash Tables)
 
 ## Authors
 
