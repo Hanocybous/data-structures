@@ -9,7 +9,7 @@
 - [Lab 4] (Binary Search Trees)
 - [Lab 5] (Graphs)
 - [Lab 6] (Hash Tables)
-
+- [Lab 7] (String Tries)
 ## Authors
 
 - [Charilaos Chatzidimitriou](mailto: cs05387@uoi.gr)
